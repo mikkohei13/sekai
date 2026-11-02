@@ -1,0 +1,33 @@
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: sekai
+      POSTGRES_PASSWORD: sekai
+      POSTGRES_DB: sekai
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U sekai -d sekai"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  web:
+    build: .
+    ports:
+      - "8000:5000"
+    environment:
+      DATABASE_URL: postgresql+psycopg2://sekai:sekai@db:5432/sekai
+      SECRET_KEY: dev-secret-change-me
+      UPLOAD_FOLDER: /app/app/static/uploads
+    volumes:
+      - ./app:/app/app
+      - uploads_data:/app/app/static/uploads
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  postgres_data:
+  uploads_data:

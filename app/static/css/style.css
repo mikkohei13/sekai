@@ -1,0 +1,107 @@
+:root {
+  --ink: #1a1a1a;
+  --muted: #5c5c5c;
+  --line: #e4e4e4;
+  --bg: #fafafa;
+  --paper: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse 80% 50% at 0% 0%, #f0ebe3 0%, transparent 55%),
+    radial-gradient(ellipse 60% 40% at 100% 100%, #e8eef2 0%, transparent 50%),
+    var(--bg);
+  line-height: 1.5;
+}
+
+header {
+  padding: 1.5rem 1.5rem 0;
+  max-width: 40rem;
+  margin: 0 auto;
+}
+
+.brand {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.brand a {
+  color: inherit;
+  text-decoration: none;
+}
+
+main {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+h1 {
+  margin: 0 0 1.5rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.character-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.character-list li {
+  display: flex;
+  gap: 1.25rem;
+  padding: 1.25rem 0;
+  border-top: 1px solid var(--line);
+}
+
+.character-list li:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.character-list img {
+  flex-shrink: 0;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  background: var(--paper);
+}
+
+.character-list h2 {
+  margin: 0 0 0.25rem;
+  font-size: 1.35rem;
+  font-weight: 600;
+}
+
+.meta {
+  margin: 0 0 0.5rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+  text-transform: capitalize;
+}
+
+.character-list p:last-child {
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+a {
+  color: var(--ink);
+}
+
+a:hover {
+  text-decoration: underline;
+}

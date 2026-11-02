@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Characters — Sekai{% endblock %}
+
+{% block content %}
+<h1>Characters</h1>
+
+{% if characters %}
+<ul class="character-list">
+  {% for character in characters %}
+  <li>
+    {% if character.image_path %}
+    <img
+      src="{{ url_for('static', filename='uploads/' + character.image_path) }}"
+      alt=""
+      width="120"
+      height="120">
+    {% endif %}
+    <div>
+      <h2>{{ character.name }}</h2>
+      <p class="meta">{{ character.sex.value }}</p>
+      <p>{{ character.description }}</p>
+    </div>
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+<p>No characters yet. Add some in <a href="/admin">admin</a>.</p>
+{% endif %}
+{% endblock %}
